@@ -1,0 +1,17 @@
+<svg width="1920" height="700" viewBox="0 0 1920 700" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="1920" height="700" rx="247" fill="url(#pattern0_7_164)"/>
+<rect width="1920" height="700" rx="247" fill="url(#paint0_radial_7_164)"/>
+<defs>
+<radialGradient id="paint0_radial_7_164" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 350) rotate(90) scale(350 960)">
+<stop stop-opacity="0"/>
+<stop offset="1" stop-color="#161616"/>
+</radialGradient>
+<pattern id="pattern0_7_164" patternUnits="userSpaceOnUse" viewBox="-863.4 37 33.6 67.2" width="1.7499999205271404%" height="9.5999995640345972%" x="957" y="347" patternContentUnits="objectBoundingBox">
+<g id="pattern0_7_164_inner">
+<rect x="-897" y="37" width="6" height="6" rx="2" fill="#2D2D2D"/>
+</g>
+<use xlink:href="#pattern0_7_164_inner" transform="translate(33.6 0)"/>
+<use xlink:href="#pattern0_7_164_inner" transform="translate(16.8 33.6)"/>
+<use xlink:href="#pattern0_7_164_inner" transform="translate(50.4 33.6)"/>
+</pattern></defs>
+</svg>

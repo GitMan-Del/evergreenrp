@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 4px;
+}
+
+/* Pentru Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) transparent;
+}
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #161616;
+  --green: #08FF94;
+  --text: #ffffff;
+  --gray: #6F6F6F;
 }
 
 body {
+  font-family: var(--font-poppins)!;
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+@keyframes logo-marquee-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes logo-marquee-x-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-logo-marquee-x {
+  animation: logo-marquee-x 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-logo-marquee-x-reverse {
+  animation: logo-marquee-x-reverse 30s linear infinite;
+  will-change: transform;
 }
