@@ -30,10 +30,28 @@
   --background-medium: #2a2a2a;
 }
 
+/* Prevent FOUC and ensure smooth loading */
+html {
+  background-color: #161616;
+  color: #ffffff;
+}
+
 body {
   font-family: var(--font-poppins)!;
   background: var(--background);
   color: var(--text);
+  /* Prevent flash during hydration */
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Prevent layout shift during font loading */
+.font-loading {
+  visibility: hidden;
+}
+
+.font-loaded {
+  visibility: visible;
 }
 
 /* Fix for deprecated heading API warning */
@@ -93,12 +111,45 @@ a:hover {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
+/* Prevent sidebar flash - ensure it's hidden by default */
+.sidebar-hidden {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-visible {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Prevent component flash during hydration */
+.hydration-safe {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in-out 0.1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   :root {
     --text-light: #f0f0f0;
     --text-medium: #c0c0c0;
     --text-dark: #a0a0a0;
+  }
+}
+
+/* Reduce layout shift */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 

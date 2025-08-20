@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Image optimization settings
   images: {
-    domains: ['evergreenrp-one.vercel.app'],
+    domains: ['evergreenrp-one.vercel.app', 'localhost'],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -11,20 +11,14 @@ const nextConfig: NextConfig = {
   },
   
   async headers() {
-    // Environment-based CORS configuration
-    const isDevelopment = process.env.NODE_ENV === 'development';
-    const allowedOrigin = isDevelopment 
-      ? (process.env.CORS_ORIGIN_DEV || 'http://localhost:3000')
-      : (process.env.CORS_ORIGIN_PROD || 'https://evergreenrp-one.vercel.app');
-    
     return [
       {
         source: "/(.*)",
         headers: [
-          // Secure CORS Policy - Environment Aware
+          // Optimized CORS Policy - Balanced security and functionality
           {
             key: "Access-Control-Allow-Origin",
-            value: allowedOrigin
+            value: "*"
           },
           {
             key: "Access-Control-Allow-Methods",
@@ -32,7 +26,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Access-Control-Allow-Headers",
-            value: "Content-Type, Authorization, X-Requested-With"
+            value: "Content-Type, Authorization, X-Requested-With, Accept, Origin"
           },
           {
             key: "Access-Control-Allow-Credentials",
@@ -43,39 +37,41 @@ const nextConfig: NextConfig = {
             value: "86400"
           },
           
-          // Content Security Policy - Production Ready
+          // Optimized Content Security Policy - Next.js friendly
           {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              // Scripts - only from trusted sources
-              "script-src 'self' https://vercel.live https://vercel.com",
-              // Styles - only from trusted sources
-              "style-src 'self' https://fonts.googleapis.com",
-              // Fonts from trusted sources
-              "font-src 'self' https://fonts.gstatic.com",
-              // Images from trusted sources
-              "img-src 'self' data: https: blob: https://evergreenrp-one.vercel.app",
-              // Media from trusted sources
-              "media-src 'self' https:",
-              // Connections to trusted sources
-              "connect-src 'self' https: wss:",
-              // Frames only from same origin
-              "frame-src 'self'",
-              // No object embedding
-              "object-src 'none'",
-              // Base URI restrictions
+              // Scripts - Next.js needs unsafe-inline and unsafe-eval
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https://vercel.live https://vercel.com https://localhost:3000",
+              // Styles - Tailwind CSS needs unsafe-inline
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://localhost:3000",
+              // Fonts from Google Fonts
+              "font-src 'self' https://fonts.gstatic.com https://localhost:3000",
+              // Images - all local and external sources
+              "img-src 'self' data: blob: https: http: https://evergreenrp-one.vercel.app https://localhost:3000",
+              // Media - all sources
+              "media-src 'self' https: http: https://localhost:3000",
+              // Connections - all sources
+              "connect-src 'self' https: http: wss: ws: https://localhost:3000",
+              // Frames - more permissive for functionality
+              "frame-src 'self' https: http: https://localhost:3000",
+              // Objects - allow for functionality
+              "object-src 'self' https: http: https://localhost:3000",
+              // Base URI - self only
               "base-uri 'self'",
-              // Form actions restricted
-              "form-action 'self'",
-              // Frame ancestors restricted
-              "frame-ancestors 'self'",
-              // Upgrade insecure requests
-              "upgrade-insecure-requests"
+              // Form actions - more permissive
+              "form-action 'self' https: http: https://localhost:3000",
+              // Frame ancestors - more permissive
+              "frame-ancestors 'self' https: http: https://localhost:3000",
+              // Worker sources
+              "worker-src 'self' blob: https://localhost:3000",
+              // Manifest sources
+              "manifest-src 'self' https://localhost:3000"
             ].join("; ")
           },
           
-          // X-Frame-Options
+          // X-Frame-Options - balanced for functionality
           {
             key: "X-Frame-Options",
             value: "SAMEORIGIN"
@@ -93,73 +89,61 @@ const nextConfig: NextConfig = {
             value: "1; mode=block"
           },
           
-          // Referrer Policy
+          // Referrer Policy - balanced
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin"
           },
           
-          // Permissions Policy
+          // Permissions Policy - balanced
           {
             key: "Permissions-Policy",
             value: [
-              "camera=()",
-              "microphone=()",
-              "geolocation=()",
-              "payment=()",
-              "usb=()",
-              "magnetometer=()",
-              "gyroscope=()",
-              "accelerometer=()",
-              "ambient-light-sensor=()",
-              "autoplay=()",
-              "battery=()",
-              "cross-origin-isolated=()",
-              "display-capture=()",
-              "document-domain=()",
-              "encrypted-media=()",
-              "execution-while-not-rendered=()",
-              "execution-while-out-of-viewport=()",
-              "fullscreen=()",
-              "gamepad=()",
-              "keyboard-map=()",
-              "picture-in-picture=()",
-              "publickey-credentials-get=()",
-              "screen-wake-lock=()",
-              "sync-xhr=()",
-              "web-share=()",
-              "xr-spatial-tracking=()"
+              "camera=(self)",
+              "microphone=(self)",
+              "geolocation=(self)",
+              "payment=(self)",
+              "usb=(self)",
+              "magnetometer=(self)",
+              "gyroscope=(self)",
+              "accelerometer=(self)",
+              "ambient-light-sensor=(self)",
+              "autoplay=(self)",
+              "battery=(self)",
+              "cross-origin-isolated=(self)",
+              "display-capture=(self)",
+              "document-domain=(self)",
+              "encrypted-media=(self)",
+              "execution-while-not-rendered=(self)",
+              "execution-while-out-of-viewport=(self)",
+              "fullscreen=(self)",
+              "gamepad=(self)",
+              "keyboard-map=(self)",
+              "picture-in-picture=(self)",
+              "publickey-credentials-get=(self)",
+              "screen-wake-lock=(self)",
+              "sync-xhr=(self)",
+              "web-share=(self)",
+              "xr-spatial-tracking=(self)"
             ].join(", ")
           },
           
-          // Strict-Transport-Security (HSTS)
+          // Strict-Transport-Security - enabled for production
           {
             key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains; preload"
+            value: "max-age=31536000; includeSubDomains"
           },
           
-          // Cross-Origin-Embedder-Policy
-          {
-            key: "Cross-Origin-Embedder-Policy",
-            value: "require-corp"
-          },
-          
-          // Cross-Origin-Opener-Policy
+          // Cross-Origin-Opener-Policy - balanced
           {
             key: "Cross-Origin-Opener-Policy",
-            value: "same-origin"
+            value: "same-origin-allow-popups"
           },
           
-          // Cross-Origin-Resource-Policy
+          // Cross-Origin-Resource-Policy - balanced
           {
             key: "Cross-Origin-Resource-Policy",
-            value: "same-origin"
-          },
-          
-          // Origin-Agent-Cluster
-          {
-            key: "Origin-Agent-Cluster",
-            value: "?1"
+            value: "same-site"
           }
         ]
       }

@@ -7,6 +7,7 @@ const poppins = Poppins({
   subsets: ["latin", "devanagari"],
   weight: ["400", "700"],
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -82,11 +83,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#1f1f1f" />
+        <meta name="theme-color" content="#161616" />
         <meta name="author" content="EverGreenRP Team" />
         <meta name="copyright" content="EverGreenRP 2024" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo 1.png" />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            html { background-color: #161616; color: #ffffff; }
+            body { background-color: #161616; color: #ffffff; opacity: 1; }
+            .sidebar-hidden { transform: translateX(-100%); }
+          `
+        }} />
       </head>
       <body
         className={`${poppins.variable} antialiased overflow-x-hidden`}

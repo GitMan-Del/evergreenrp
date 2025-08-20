@@ -16,13 +16,13 @@ export default function Home() {
     <div className="w-full h-min-screen bg-[var(--background)] flex flex-col overflow-auto overflow-x-hidden">
       {/* Hero , Main Section */}
       <section className="h-screen w-full md:bg-gradient-to-b from-[var(--green)] from-0% to-50% to-[var(--background)] p-1 md:p-3 relative overflow-hidden">
-        <div className="hidden md:block md:absolute inset-10 z-20 bottom-0 -right-2/5 background-image-container" style={{ height: '400px', width: '400px' }}>
+        <div className="hidden md:block md:absolute inset-10 z-20 bottom-0 -right-2/5 background-image-container">
           <Image
             src="/personagem-de-desenho-animado-a-viajar 1 1 (1).png"
             fill
             alt="Fivem-Caracter"
             priority
-            className="object-contain"
+            className="object-contain"  
             onError={(e) => {
               console.error('Character image failed to load:', e);
             }}
