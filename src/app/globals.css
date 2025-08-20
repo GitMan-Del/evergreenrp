@@ -56,3 +56,68 @@ body {
   animation: logo-marquee-x-reverse 30s linear infinite;
   will-change: transform;
 }
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin2 {
+  animation: spin 20s linear infinite;
+}
+
+
+
+@keyframes float-fast {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float-medium {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float-fast {
+  animation: float-fast 2s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 3.5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+

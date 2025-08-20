@@ -24,7 +24,7 @@ export default function Home() {
           />
         </div>
 
-        <svg viewBox="0 0 300 300" className="md:w-[600px] md:h-[600px] w-[500px] h-[500px] animate-spin left-1/2 bottom-1/2  md:-translate-0  -translate-x-1/2 md:opacity-100 opacity-30 translate-y-1/2  absolute md:right-60 md:bottom-0 rounded-full z-10">
+        <svg viewBox="0 0 300 300" className="md:w-[600px] md:h-[600px] w-[500px] h-[500px] animate-spin2 left-1/2 bottom-1/2  md:-translate-0  -translate-x-1/2 md:opacity-100 opacity-30 translate-y-1/2  absolute md:right-60 md:bottom-0 rounded-full z-10">
           <defs>
             <path id="cerc" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"/>
           </defs>
