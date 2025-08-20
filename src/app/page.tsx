@@ -3,6 +3,8 @@
 import Image from "next/image";
 import NavBar from "./components/Navbar";
 import React from "react";
+import Link from "next/link";
+
 
 export default function Home() {
   const baseImage = ["/logo 1.png"];
@@ -302,30 +304,30 @@ export default function Home() {
               Server de comunitate pentru toți cei ce vor să se distreze, socializeze și să experimenteze un mediu de joc prietenos, activ și unic.
             </p>
             <div className="flex gap-2 mt-2">
-              <a href="#" aria-label="Discord" className="hover:opacity-80">
+              <Link href="https://discord.gg/9XFvyBvNaa" aria-label="Discord" className="hover:opacity-80">
                 <Image src="/dis.png" alt="Discord" width={30} height={30} />
-              </a>
-              <a href="#" aria-label="tiktok" className="hover:opacity-80">
+              </Link>
+              <Link href="#" aria-label="tiktok" className="hover:opacity-80">
                 <Image src="/tt.png" alt="tiktok" width={30} height={30} />
-              </a>
+              </Link>
             </div>
           </div>
           {/* Middle: Pages */}
           <div className="flex flex-col gap-2 min-w-[120px] w-full md:w-auto">
             <span className="font-bold text-white mb-1 text-lg md:text-lg">Pages</span>
-            <a href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Home</a>
-            <a href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Community</a>
-            <a href="#" className="hover:text-[var(--green)] text-sm md:text-sm">About us</a>
-            <a href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Shop</a>
-            <a href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Rust Server</a>
+            <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Home</Link>
+            <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Community</Link>
+            <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">About us</Link>
+            <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Shop</Link>
+            <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Rust Server</Link>
           </div>
           {/* Right: Contact Info */}
           <div className="flex flex-col gap-2 min-w-[180px] w-full md:w-auto">
             <span className="font-bold text-white mb-1 text-lg md:text-lg">Contact Info</span>
-            <a href="mailto:evergreen@gmail.com" className="text-sm md:text-sm hover:text-[var(--green)] break-all">evergreen@gmail.com</a>
-            <a href="tel:+401234567890" className="text-sm md:text-sm hover:text-[var(--green)]">Telefon: +40 123 456 7890</a>
-            <a href="tel:+40712345678" className="text-sm md:text-sm hover:text-[var(--green)]">+40712345678</a>
-            <a href="https://discord.gg/evergreen" target="_blank" rel="noopener noreferrer" className="text-sm md:text-sm hover:text-[var(--green)] break-all">discord.gg/evergreen</a>
+            <Link href="mailto:evergreen@gmail.com" className="text-sm md:text-sm hover:text-[var(--green)] break-all">evergreen@gmail.com</Link>
+            <Link href="tel:+401234567890" className="text-sm md:text-sm hover:text-[var(--green)]">Telefon: +40 123 456 7890</Link>
+            <Link href="tel:+40712345678" className="text-sm md:text-sm hover:text-[var(--green)]">+40712345678</Link>
+            <Link href="https://discord.gg/9XFvyBvNaa" target="_blank" rel="noopener noreferrer" className="text-sm md:text-sm hover:text-[var(--green)] break-all">discord.gg/evergreen</Link>
           </div>
         </div>
         <div className="w-full md:w-[85%] text-xs text-[#6d6d6d] mt-8 border-t border-[#232323] pt-2 text-center mx-auto md:text-left">

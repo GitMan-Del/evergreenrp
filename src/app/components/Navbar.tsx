@@ -15,31 +15,31 @@ export default function NavBar() {
           <ul className="flex flex-row gap-5 items-center ml-10 text-xs font-light">
             <li className="flex flex-row items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[var(--green)]"></div>
-              <Link href="/home">
+              <Link href="/">
                 Home
               </Link>
             </li>
             <li className="flex flex-row items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[var(--gray)]"></div>
-              <Link href="/home">
+              <Link href="/changelog">
               ChangeLog
               </Link>
             </li>
             <li className="flex flex-row items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[var(--gray)]"></div>
-              <Link href="/home">
+              <Link href="#AboutUs">
               AboutUs
               </Link>
             </li>
             <li className="flex flex-row items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[var(--gray)]"></div>
-              <Link href="/home">
+              <Link href="/shop">
               Shop
               </Link>
             </li>
             <li className="flex flex-row items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[var(--gray)]"></div>
-              <Link href="/home">
+              <Link href="/rust-server">
               Rust Server
               </Link>
             </li>
@@ -49,7 +49,7 @@ export default function NavBar() {
         <div>
           <button className="border text-[var(--green)] font-black px-15 py-2 rounded-br-2xl rounded-tl-2xl text-sm hover:cursor-pointer hover:scale-105 duration-200">
             Login
-          </button>
+          </button> 
         </div>
       </div>
     </div>
