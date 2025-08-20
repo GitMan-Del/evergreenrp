@@ -11,26 +11,66 @@ const nextConfig: NextConfig = {
   },
   
   async headers() {
+    // Environment-based CORS configuration
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const allowedOrigin = isDevelopment 
+      ? (process.env.CORS_ORIGIN_DEV || 'http://localhost:3000')
+      : (process.env.CORS_ORIGIN_PROD || 'https://evergreenrp-one.vercel.app');
+    
     return [
       {
         source: "/(.*)",
         headers: [
-          // Content Security Policy
+          // Secure CORS Policy - Environment Aware
+          {
+            key: "Access-Control-Allow-Origin",
+            value: allowedOrigin
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, POST, PUT, DELETE, OPTIONS"
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "Content-Type, Authorization, X-Requested-With"
+          },
+          {
+            key: "Access-Control-Allow-Credentials",
+            value: "true"
+          },
+          {
+            key: "Access-Control-Max-Age",
+            value: "86400"
+          },
+          
+          // Content Security Policy - Production Ready
           {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://vercel.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              // Scripts - only from trusted sources
+              "script-src 'self' https://vercel.live https://vercel.com",
+              // Styles - only from trusted sources
+              "style-src 'self' https://fonts.googleapis.com",
+              // Fonts from trusted sources
               "font-src 'self' https://fonts.gstatic.com",
+              // Images from trusted sources
               "img-src 'self' data: https: blob: https://evergreenrp-one.vercel.app",
+              // Media from trusted sources
               "media-src 'self' https:",
+              // Connections to trusted sources
               "connect-src 'self' https: wss:",
+              // Frames only from same origin
               "frame-src 'self'",
+              // No object embedding
               "object-src 'none'",
+              // Base URI restrictions
               "base-uri 'self'",
+              // Form actions restricted
               "form-action 'self'",
+              // Frame ancestors restricted
               "frame-ancestors 'self'",
+              // Upgrade insecure requests
               "upgrade-insecure-requests"
             ].join("; ")
           },

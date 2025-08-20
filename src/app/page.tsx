@@ -16,7 +16,7 @@ export default function Home() {
     <div className="w-full h-min-screen bg-[var(--background)] flex flex-col overflow-auto overflow-x-hidden">
       {/* Hero , Main Section */}
       <section className="h-screen w-full md:bg-gradient-to-b from-[var(--green)] from-0% to-50% to-[var(--background)] p-1 md:p-3 relative overflow-hidden">
-        <div className="hidden md:block md:absolute inset-10 z-20 bottom-0 -right-2/5 background-image-container">
+        <div className="hidden md:block md:absolute inset-10 z-20 bottom-0 -right-2/5 background-image-container" style={{ height: '400px', width: '400px' }}>
           <Image
             src="/personagem-de-desenho-animado-a-viajar 1 1 (1).png"
             fill
@@ -58,7 +58,7 @@ export default function Home() {
         <NavBar />
         <main className="w-full h-[calc(100%)] rounded-2xl relative overflow-hidden">
           {/* Container pentru imaginea de fundal */}
-          <div className="bg-[var(--background)] md:bg-transparent rounded-2xl absolute inset-0 z-0 background-image-container background-fallback">
+          <div className="bg-[var(--background)] md:bg-transparent rounded-2xl absolute inset-0 z-0 background-image-container background-fallback" style={{ minHeight: '100%' }}>
             {/* Fallback background gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--green)]/20 via-[var(--background)] to-[var(--background)] rounded-4xl"></div>
             
@@ -171,7 +171,7 @@ export default function Home() {
 
       <section className="w-full min-h-[80vh] flex flex-col text-white relative justify-between">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0 background-image-container">
+        <div className="absolute inset-0 z-0 background-image-container" style={{ minHeight: '100%' }}>
           <Image
             src="/Background.svg"
             alt="Background"
@@ -220,6 +220,7 @@ export default function Home() {
                 width={400}
                 height={200}
                 className="object-fill w-full h-auto rounded-xl shadow-md"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             {/* Mobile Image */}
@@ -230,6 +231,7 @@ export default function Home() {
                 width={120}
                 height={240}
                 className="object-contain w-full h-auto rounded-xl shadow-md"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>
@@ -242,6 +244,7 @@ export default function Home() {
                 width={220}
                 height={110}
                 className="object-contain w-full h-auto rounded-xl shadow"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             <div className="w-[40%] max-w-[90px] -mt-4 flex justify-center">
@@ -251,6 +254,7 @@ export default function Home() {
                 width={90}
                 height={180}
                 className="object-contain w-full h-auto rounded-xl shadow"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>
@@ -263,7 +267,14 @@ export default function Home() {
             Meet <span className="text-[var(--green)]">our team</span>
           </div>
           <h3 className="text-4xl md:text-6xl font-black italic text-white mb-4 relative">
-            <Image src="/Team.png" width={100} height={50} alt="team" className="absolute bottom-0 -right-20"/>
+            <Image 
+              src="/Team.png" 
+              width={100} 
+              height={50} 
+              alt="team" 
+              className="absolute bottom-0 -right-20"
+              style={{ width: 'auto', height: 'auto' }}
+            />
           About<span className="text-[var(--green)]"> Us - <br /> The team</span></h3>
           <p className="text-sm md:text-md max-w-md mb-6">
             Suntem o comunitate pasionată de RP unde realismul întâlnește distracția. Scopul nostru este să oferim un server unde fiecare jucător își poate crea și trăi propria poveste, alături de oameni dedicați.
@@ -277,7 +288,13 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <Image src="/Group 44.png" alt="ServerPublicImgs" width={500} height={500}/>
+        <Image 
+          src="/Group 44.png" 
+          alt="ServerPublicImgs" 
+          width={500} 
+          height={500}
+          style={{ width: 'auto', height: 'auto' }}
+        />
       </section>
 
       <section className="w-full min-h-[35vh] flex flex-col items-center justify-center relative py-16 overflow-visible">
