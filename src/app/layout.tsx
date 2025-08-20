@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     images: ["/OG-IMAGE.png"],
     site: "@EverGreenRP",
   },
-  metadataBase: new URL("https://evergreenrp.ro"),
+  metadataBase: new URL("https://evergreenrp-one.vercel.app/"),
   alternates: {
     canonical: "/",
   },
