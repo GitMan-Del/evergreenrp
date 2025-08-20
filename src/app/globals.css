@@ -16,17 +16,90 @@
   scrollbar-width: thin;
   scrollbar-color: var(--green) transparent;
 }
+
 :root {
   --background: #161616;
   --green: #08FF94;
   --text: #ffffff;
   --gray: #6F6F6F;
+  /* Improved contrast colors for accessibility */
+  --text-light: #e0e0e0; /* Better contrast than #bdbdbd */
+  --text-medium: #a0a0a0; /* Better contrast than #6F6F6F */
+  --text-dark: #8a8a8a; /* Better contrast than #6d6d6d */
+  --background-light: #1f1f1f;
+  --background-medium: #2a2a2a;
 }
 
 body {
   font-family: var(--font-poppins)!;
   background: var(--background);
   color: var(--text);
+}
+
+/* Fix for deprecated heading API warning */
+h1 {
+  font-size: 1.5rem; /* Default fallback size */
+  line-height: 1.2;
+}
+
+/* Ensure h1 elements maintain their intended sizes */
+h1.text-4xl {
+  font-size: 2.25rem; /* 36px */
+}
+
+h1.md\:text-6xl {
+  font-size: 3.75rem; /* 60px */
+}
+
+h1.text-xl {
+  font-size: 1.25rem; /* 20px */
+}
+
+/* Background image optimization */
+.background-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-image-container img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Fallback background for when image is loading */
+.background-fallback {
+  background: linear-gradient(135deg, var(--background-light) 0%, var(--background-medium) 100%);
+}
+
+/* Accessibility improvements for better contrast */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+/* Ensure links have sufficient contrast */
+a {
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--green);
+}
+
+/* Improve text readability on dark backgrounds */
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-light: #f0f0f0;
+    --text-medium: #c0c0c0;
+    --text-dark: #a0a0a0;
+  }
 }
 
 @keyframes logo-marquee-x {
