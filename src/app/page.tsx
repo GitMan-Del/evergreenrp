@@ -61,7 +61,7 @@ export default function Home() {
               fill
               alt="backgroundimage"
               priority
-              className="object-fill rounded-4xl"
+              className="object-fill rounded-4xl hidden md:block"
             />
           </div>
 
