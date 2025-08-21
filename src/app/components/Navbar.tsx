@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
@@ -46,34 +46,22 @@ function isActiveLink(href: string, pathname: string) {
 
 export default function NavBar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const pathname = usePathname();
-
-  // Prevent hydration mismatch
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <>
       {/* Sidebar Overlay */}
-      {isClient && (
-        <div
-          className={`fixed inset-0 z-[99] bg-black/40 transition-opacity duration-300 ${
-            sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
-          onClick={() => setSidebarOpen(false)}
-          aria-hidden={!sidebarOpen}
-        />
-      )}
+      <div
+        className={`fixed inset-0 z-[99] bg-black/40 transition-opacity duration-300 ${
+          sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setSidebarOpen(false)}
+        aria-hidden={!sidebarOpen}
+      />
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-[var(--background-light)] z-[100] shadow-lg ${
-          isClient
-            ? `transform transition-transform duration-300 ${
-                sidebarOpen ? "translate-x-0" : "-translate-x-full"
-              }`
-            : "sidebar-hidden"
+        className={`fixed top-0 left-0 h-full w-64 bg-[var(--background)] z-[100] shadow-lg transform transition-transform duration-300 ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         aria-label="Sidebar"
       >
@@ -123,7 +111,7 @@ export default function NavBar() {
         </div>
       </aside>
       {/* Navbar */}
-      <div className={`w-full h-24 z-[90] absolute top-0 left-0 ${isClient ? "hydration-safe" : ""}`}>
+      <div className="w-full h-24 z-[90] absolute top-0 left-0">
         <div className="w-[90%] h-full mx-auto text-white flex items-center justify-between">
           {/* Left side: Logo and Title */}
           <div className="flex flex-row items-center gap-10">

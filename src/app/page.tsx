@@ -15,17 +15,14 @@ export default function Home() {
   return (
     <div className="w-full h-min-screen bg-[var(--background)] flex flex-col overflow-auto overflow-x-hidden">
       {/* Hero , Main Section */}
-      <section className="h-screen w-full md:bg-gradient-to-b from-[var(--green)] from-0% to-50% to-[var(--background)] p-1 md:p-3 relative overflow-hidden">
-        <div className="hidden md:block md:absolute inset-10 z-20 bottom-0 -right-2/5 background-image-container">
+      <section className="h-screen w-full bg-gradient-to-b from-[var(--green)] from-0% to-50% to-[var(--background)] p-1 md:p-3 relative overflow-hidden">
+        <div className="hidden md:block md:absolute inset-10 z-20 bottom-0 -right-2/5">
           <Image
             src="/personagem-de-desenho-animado-a-viajar 1 1 (1).png"
             fill
             alt="Fivem-Caracter"
             priority
-            className="object-contain"  
-            onError={(e) => {
-              console.error('Character image failed to load:', e);
-            }}
+            className="object-contain"
           />
         </div>
 
@@ -58,30 +55,13 @@ export default function Home() {
         <NavBar />
         <main className="w-full h-[calc(100%)] rounded-2xl relative overflow-hidden">
           {/* Container pentru imaginea de fundal */}
-          <div className="bg-[var(--background)] md:bg-transparent rounded-2xl absolute inset-0 z-0 background-image-container background-fallback" style={{ minHeight: '100%' }}>
-            {/* Fallback background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--green)]/20 via-[var(--background)] to-[var(--background)] rounded-4xl"></div>
-            
-            {/* Background image */}
+          <div className="bg-[var(--background)] md:bg-transparent rounded-2xl absolute inset-0 z-0">
             <Image
               src="/Bg3.png"
               fill
-              alt="Background image for EverGreenRP"
+              alt="backgroundimage"
               priority
-              quality={90}
-              sizes="100vw"
-              className="object-cover rounded-4xl opacity-90"
-              style={{
-                objectPosition: 'center'
-              }}
-              onError={(e) => {
-                console.error('Background image failed to load:', e);
-                // Hide the image container on error to show fallback
-                const container = e.currentTarget.parentElement;
-                if (container) {
-                  container.style.display = 'none';
-                }
-              }}
+              className="object-fill rounded-4xl"
             />
           </div>
 
@@ -112,15 +92,15 @@ export default function Home() {
               <div className="flex flex-row gap-6 md:gap-10 text-white z-50 absolute bottom-4 max-w-lg">
                 <div className="flex flex-col gap-1 items-left text-left">
                   <h2 className="font-black italic text-3xl md:text-4xl">+300</h2>
-                  <p className="max-w-md text-sm md:text-sm text-[var(--text-medium)]">+300 Online players , join us now</p>
+                  <p className="max-w-md text-sm md:text-sm text-[#6F6F6F]">+300 Online players , join us now</p>
                 </div>
                 <div className="flex flex-col gap-1 items-start text-left">
-                  <h2 className="font-black italic text-3xl md:text-4xl">24/24</h2>
-                  <p className="max-w-md text-sm md:text-sm text-[var(--text-medium)]">The Server is Online 24 hours a day , no time to pause</p>
+                  <h3 className="font-black italic text-3xl md:text-4xl">24/24</h3>
+                  <p className="max-w-md text-sm md:text-sm text-[#6F6F6F]">The Server is Online 24 hours a day , no time to pause</p>
                 </div>
                 <div className="flex flex-col gap-1 items-leftr text-left">
-                  <h2 className="font-black italic text-3xl md:text-4xl">Free</h2>
-                  <p className="max-w-md text-sm md:text-sm text-[var(--text-medium)]">Free to join an play with your friends and + more people</p>
+                  <h4 className="font-black italic text-3xl md:text-4xl">Free</h4>
+                  <p className="max-w-md text-sm md:text-sm  text-[#6F6F6F]">Free to join an play with your friends and + more people</p>
                 </div>
               </div>
             </div>
@@ -171,27 +151,22 @@ export default function Home() {
 
       <section className="w-full min-h-[80vh] flex flex-col text-white relative justify-between">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0 background-image-container" style={{ minHeight: '100%' }}>
-          <Image
-            src="/Background.svg"
-            alt="Background"
-            fill
-            className="object-cover"
-            priority
-            onError={(e) => {
-              console.error('Background SVG failed to load:', e);
-            }}
-          />
-        </div>
+        <Image
+          src="/Background.svg"
+          alt="Background"
+          fill
+          className="object-cover absolute top-0 left-0 z-0"
+          priority
+        />
 
         {/* Text Content */}
         <div className="flex flex-col items-center justify-start z-20 mt-16 w-full px-4">
           <div className="px-5 md:px-6 py-1 bg-[#1f1f1f]/70 rounded-br-2xl rounded-tl-2xl max-w-[220px] text-left mx-auto text-sm md:text-base">
             Choose <span className="text-[var(--green)]"> Your Path</span>
           </div>
-          <h2 className="text-3xl md:text-6xl font-black italic text-white text-center mt-4">
+          <h6 className="text-3xl md:text-6xl font-black italic text-white text-center mt-4">
             <span className="text-[var(--green)]">LIVE </span> the <span className="text-[var(--green)]"> BEST RP </span> experience
-          </h2>
+          </h6>
           <p className="max-w-md text-center mt-2 mb-4 text-sm md:text-base">
             Intră într-o lume unde realismul, comunitatea și distracția se îmbină perfect. Aici, nu ești doar un jucător – ești parte dintr-o poveste vie.
           </p>
@@ -220,7 +195,6 @@ export default function Home() {
                 width={400}
                 height={200}
                 className="object-fill w-full h-auto rounded-xl shadow-md"
-                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             {/* Mobile Image */}
@@ -231,7 +205,6 @@ export default function Home() {
                 width={120}
                 height={240}
                 className="object-contain w-full h-auto rounded-xl shadow-md"
-                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>
@@ -244,7 +217,6 @@ export default function Home() {
                 width={220}
                 height={110}
                 className="object-contain w-full h-auto rounded-xl shadow"
-                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             <div className="w-[40%] max-w-[90px] -mt-4 flex justify-center">
@@ -254,7 +226,6 @@ export default function Home() {
                 width={90}
                 height={180}
                 className="object-contain w-full h-auto rounded-xl shadow"
-                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>
@@ -267,14 +238,7 @@ export default function Home() {
             Meet <span className="text-[var(--green)]">our team</span>
           </div>
           <h3 className="text-4xl md:text-6xl font-black italic text-white mb-4 relative">
-            <Image 
-              src="/Team.png" 
-              width={100} 
-              height={50} 
-              alt="team" 
-              className="absolute bottom-0 -right-20"
-              style={{ width: 'auto', height: 'auto' }}
-            />
+            <Image src="/Team.png" width={100} height={50} alt="team" className="absolute bottom-0 -right-20"/>
           About<span className="text-[var(--green)]"> Us - <br /> The team</span></h3>
           <p className="text-sm md:text-md max-w-md mb-6">
             Suntem o comunitate pasionată de RP unde realismul întâlnește distracția. Scopul nostru este să oferim un server unde fiecare jucător își poate crea și trăi propria poveste, alături de oameni dedicați.
@@ -288,34 +252,28 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <Image 
-          src="/Group 44.png" 
-          alt="ServerPublicImgs" 
-          width={500} 
-          height={500}
-          style={{ width: 'auto', height: 'auto' }}
-        />
+        <Image src="/Group 44.png" alt="ServerPublicImgs" width={500} height={500}/>
       </section>
 
       <section className="w-full min-h-[35vh] flex flex-col items-center justify-center relative py-16 overflow-visible">
         {/* Iconite plutitoare */}
         <div className="absolute left-[12%] top-[38%] animate-float-slow">
-          <Image src="/community-icon5.png" alt="icon1" width={36} height={36} className="drop-shadow-lg" onError={(e) => console.error('Icon 5 failed to load:', e)} />
+          <Image src="/community-icon5.png" alt="icon1" width={36} height={36} className="drop-shadow-lg" />
         </div>
         <div className="absolute left-[22%] top-[18%] animate-float-medium">
-          <Image src="/community-icon4.png" alt="icon2" width={36} height={36} className="drop-shadow-lg" onError={(e) => console.error('Icon 4 failed to load:', e)} />
+          <Image src="/community-icon4.png" alt="icon2" width={36} height={36} className="drop-shadow-lg" />
         </div>
         <div className="absolute left-[48%] top-[6%] animate-float-fast">
-          <Image src="/community-icon6.png" alt="icon3" width={36} height={36} className="drop-shadow-lg" onError={(e) => console.error('Icon 6 failed to load:', e)} />
+          <Image src="/community-icon6.png" alt="icon3" width={36} height={36} className="drop-shadow-lg" />
         </div>
         <div className="absolute right-[22%] top-[18%] animate-float-medium">
-          <Image src="/community-icon1.png" alt="icon4" width={36} height={36} className="drop-shadow-lg" onError={(e) => console.error('Icon 1 failed to load:', e)} />
+          <Image src="/community-icon1.png" alt="icon4" width={36} height={36} className="drop-shadow-lg" />
         </div>
         <div className="absolute right-[12%] top-[38%] animate-float-slow">
-          <Image src="/community-icon2.png" alt="icon5" width={36} height={36} className="drop-shadow-lg" onError={(e) => console.error('Icon 2 failed to load:', e)} />
+          <Image src="/community-icon2.png" alt="icon5" width={36} height={36} className="drop-shadow-lg" />
         </div>
         <div className="absolute left-1/3 bottom-10 -translate-x-1/2 animate-float-medium">
-          <Image src="/community-icon3.png" alt="icon6" width={36} height={36} className="drop-shadow-lg" onError={(e) => console.error('Icon 3 failed to load:', e)} />
+          <Image src="/community-icon3.png" alt="icon6" width={36} height={36} className="drop-shadow-lg" />
         </div>
         {/* Badge */}
         <div className="mb-2 flex items-center justify-center">
@@ -324,17 +282,19 @@ export default function Home() {
           </span>
         </div>
         {/* Titlu */}
-        <h2 className="text-3xl md:text-5xl font-black italic text-center text-white mb-2">
+        <h5 className="text-3xl md:text-5xl font-black italic text-center text-white mb-2">
           <span className="text-white">Be Part of the </span>
           <span className="text-[var(--green)]">Community</span>
-        </h2>
+        </h5>
         {/* Descriere */}
-        <p className="text-[var(--text-light)] text-center max-w-xl mx-auto text-sm md:text-base font-medium">
+        <p className="text-[#bdbdbd] text-center max-w-xl mx-auto text-sm md:text-base font-medium">
           Intră într-un server unde comunitatea crește, staff implicat, jucători activi și chat familiar, alături de o voce jovială deschisă.
         </p>
       </section>
 
-      <footer className="w-full bg-[var(--background)] pt-8 pb-2 px-4 md:px-16 text-[var(--text-light)]">
+      <footer className="w-full bg-gradient-to-t from-[var(--green)] from-0% to-70% to-[var(--background)]  pb-2 px-2   text-[#bdbdbd]">
+        <div className="w-full mx-auto bg-[var(--background)] h-full p-2 rounded-2xl">
+
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-stretch md:items-start gap-8">
           {/* Left: Logo & Description */}
           <div className="flex flex-col gap-2 max-w-xs w-full md:w-auto">
@@ -347,10 +307,10 @@ export default function Home() {
             </p>
             <div className="flex gap-2 mt-2">
               <Link href="https://discord.gg/9XFvyBvNaa" aria-label="Discord" className="hover:opacity-80">
-                <Image src="/dis.png" alt="Discord" width={30} height={30} onError={(e) => console.error('Discord icon failed to load:', e)} />
+                <Image src="/dis.png" alt="Discord" width={30} height={30} />
               </Link>
               <Link href="#" aria-label="tiktok" className="hover:opacity-80">
-                <Image src="/tt.png" alt="tiktok" width={30} height={30} onError={(e) => console.error('TikTok icon failed to load:', e)} />
+                <Image src="/tt.png" alt="tiktok" width={30} height={30} />
               </Link>
             </div>
           </div>
@@ -372,8 +332,9 @@ export default function Home() {
             <Link href="https://discord.gg/9XFvyBvNaa" target="_blank" rel="noopener noreferrer" className="text-sm md:text-sm hover:text-[var(--green)] break-all">discord.gg/evergreen</Link>
           </div>
         </div>
-        <div className="w-full md:w-[85%] text-xs text-[var(--text-dark)] mt-8 border-t border-[#232323] pt-2 text-center mx-auto md:text-left">
+        <div className="w-full md:w-[85%] text-xs text-[#6d6d6d] mt-8 border-t border-[#232323] pt-2 text-center mx-auto md:text-left">
           © 2024 EverGreen. Toate drepturile rezervate.
+        </div>
         </div>
       </footer>
     </div>
