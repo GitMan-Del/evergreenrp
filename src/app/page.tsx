@@ -68,7 +68,7 @@ export default function Home() {
           {/* Conținutul principal */}
           <div className="absolute inset-0 z-50 flex items-center justify-start w-[90%] mx-auto">
             <div className="flex flex-col gap-4 text-white text-left max-w-md">
-              <div className="px-6 py-1 bg-[#1f1f1f]/70 rounded-br-2xl rounded-tl-2xl max-w-[200px] text-left text-sm md:text-base">
+              <div className="px-4 py-1 bg-[#1f1f1f]/80 rounded-br-2xl rounded-tl-2xl text-xs font-semibold text-white tracking-wide shadow w-fit">
                 +100 <span className="text-[var(--green)]">online now</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-black italic text-[var(--green)]">
@@ -161,7 +161,7 @@ export default function Home() {
 
         {/* Text Content */}
         <div className="flex flex-col items-center justify-start z-20 mt-16 w-full px-4">
-          <div className="px-5 md:px-6 py-1 bg-[#1f1f1f]/70 rounded-br-2xl rounded-tl-2xl max-w-[220px] text-left mx-auto text-sm md:text-base">
+          <div className="px-4 py-1 bg-[#1f1f1f]/80 rounded-br-2xl rounded-tl-2xl text-xs font-semibold text-white tracking-wide shadow">
             Choose <span className="text-[var(--green)]"> Your Path</span>
           </div>
           <h6 className="text-3xl md:text-6xl font-black italic text-white text-center mt-4">
@@ -234,7 +234,7 @@ export default function Home() {
 
       <section className="w-full h-screen text-white text-left flex flex-col md:flex-row-reverse items-center justify-evenly md:p-0 p-3">
         <div className="flex flex-col items-start justify-center">
-          <div className="px-6 py-1 bg-[#1f1f1f]/70 rounded-br-2xl rounded-tl-2xl max-w-[200px] text-left mb-4 text-sm md:text-base">
+          <div className="px-4 py-1 bg-[#1f1f1f]/80 rounded-br-2xl rounded-tl-2xl text-xs font-semibold text-white tracking-wide shadow">
             Meet <span className="text-[var(--green)]">our team</span>
           </div>
           <h3 className="text-4xl md:text-6xl font-black italic text-white mb-4 relative">
@@ -277,7 +277,7 @@ export default function Home() {
         </div>
         {/* Badge */}
         <div className="mb-2 flex items-center justify-center">
-          <span className="px-4 py-1 bg-[#1f1f1f]/80 rounded-full text-xs font-semibold text-[var(--green)] tracking-wide shadow">
+          <span className="px-4 py-1 bg-[#1f1f1f]/80 rounded-br-2xl rounded-tl-2xl text-xs font-semibold text-[var(--green)] tracking-wide shadow">
             The <span className="text-white">Community</span>
           </span>
         </div>
