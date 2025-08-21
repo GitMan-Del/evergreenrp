@@ -15,7 +15,7 @@ const NAV_LINKS = [
   },
   {
     label: "AboutUs",
-    href: "#AboutUs",
+    href: "#aboutus",
   },
   {
     label: "Shop",

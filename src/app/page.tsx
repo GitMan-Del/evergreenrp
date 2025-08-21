@@ -175,64 +175,22 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Responsive Images */}
-        <div className="relative flex justify-center items-end w-full  mt-8 z-10 scale-125">
-          {/* Desktop Image */}
-          <div className="block w-2/3 max-w-3xl relative">
+        {/* Imagine de jos, 80% lățime, mereu lipită de jos */}
+        <div className="w-full relative z-10 flex justify-center items-end" style={{ minHeight: "0", flex: "1 0 auto" }}>
+          <div className="w-[80%] absolute left-1/2 -translate-x-1/2 bottom-0">
             <Image
-              src="/Desktop.png"
-              alt="Desktop Preview"
-              width={1200}
-              height={700}
-              className="object-fill w-full h-auto rounded-xl shadow-lg"
+              src="/Group 12.png"
+              alt="a"
+              width={1920}
+              height={600}
+              className="object-contain w-full h-auto"
               priority
             />
-            {/* Tablet Image */}
-            <div className="absolute right-0 bottom-0 w-1/3 max-w-xs hidden md:block">
-              <Image
-                src="/Tablet.png"
-                alt="Tablet Preview"
-                width={400}
-                height={200}
-                className="object-fill w-full h-auto rounded-xl shadow-md"
-              />
-            </div>
-            {/* Mobile Image */}
-            <div className="absolute left-0 bottom-0 w-1/5 max-w-[120px] hidden md:block">
-              <Image
-                src="/Mobile.png"
-                alt="Mobile Preview"
-                width={120}
-                height={240}
-                className="object-contain w-full h-auto rounded-xl shadow-md"
-              />
-            </div>
-          </div>
-          {/* Mobile/Tablet Only: Stacked Images */}
-          <div className="flex flex-col gap-2 w-full justify-center items-center md:hidden">
-            <div className="w-[70%] max-w-[220px] flex justify-center">
-              <Image
-                src="/Tablet.png"
-                alt="Tablet Preview"
-                width={220}
-                height={110}
-                className="object-contain w-full h-auto rounded-xl shadow"
-              />
-            </div>
-            <div className="w-[40%] max-w-[90px] -mt-4 flex justify-center">
-              <Image
-                src="/Mobile.png"
-                alt="Mobile Preview"
-                width={90}
-                height={180}
-                className="object-contain w-full h-auto rounded-xl shadow"
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="w-full h-screen text-white text-left flex flex-col md:flex-row-reverse items-center justify-evenly md:p-0 p-3">
+      <section id="aboutus" className="w-full h-screen text-white text-left flex flex-col md:flex-row-reverse items-center justify-evenly md:p-0 p-3">
         <div className="flex flex-col items-start justify-center">
           <div className="px-4 py-1 bg-[#1f1f1f]/80 rounded-br-2xl rounded-tl-2xl text-xs font-semibold text-white tracking-wide shadow">
             Meet <span className="text-[var(--green)]">our team</span>
@@ -294,7 +252,6 @@ export default function Home() {
 
       <footer className="w-full bg-gradient-to-t from-[var(--green)] from-0% to-70% to-[var(--background)]  pb-2 px-2   text-[#bdbdbd]">
         <div className="w-full mx-auto bg-[var(--background)] h-full p-2 rounded-2xl">
-
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-stretch md:items-start gap-8">
           {/* Left: Logo & Description */}
           <div className="flex flex-col gap-2 max-w-xs w-full md:w-auto">
@@ -318,7 +275,7 @@ export default function Home() {
           <div className="flex flex-col gap-2 min-w-[120px] w-full md:w-auto">
             <span className="font-bold text-white mb-1 text-lg md:text-lg">Pages</span>
             <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Home</Link>
-            <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Community</Link>
+            <Link href="/changelog" className="hover:text-[var(--green)] text-sm md:text-sm">ChangeLog</Link>
             <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">About us</Link>
             <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Shop</Link>
             <Link href="#" className="hover:text-[var(--green)] text-sm md:text-sm">Rust Server</Link>
