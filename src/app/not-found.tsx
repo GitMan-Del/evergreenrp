@@ -1,14 +1,9 @@
-"use client"
-
 import Link from "next/link";
 import { Home, AlertTriangle } from "lucide-react";
 
 export default function NotFound() {
   return (
     <div className="w-full min-h-screen bg-[var(--background)] flex flex-col items-center justify-center px-4">
-      {/* Logo */}
-     
-
       {/* 404 Content */}
       <div className="text-center max-w-md mx-auto">
         {/* Icon */}
@@ -42,7 +37,6 @@ export default function NotFound() {
           Înapoi la Home
         </Link>
       </div>
-
     </div>
   );
 }
